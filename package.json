@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server",
-    "transpile": "node_modules/.bin/babel ./client/src.jsx",
-    "build": "browserify ./client/src.jsx -o ./client/bundle.js -t babelify"
+    "transpile": "node_modules/.bin/babel ./client/index.jsx",
+    "build": "./node_modules/.bin/watchify ./client/index.jsx -o ./client/public/bundle.js -t babelify -v",
+    "build-min": "./node_modules/.bin/watchify ./client/index.jsx -o 'uglifyjs -cm > ./client/public/bundle.js' -t babelify -v"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "uglify-js": "^3.1.4"
   }
 }
