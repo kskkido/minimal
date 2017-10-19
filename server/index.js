@@ -21,7 +21,6 @@ const server = http.createServer((req, res) => {
       return res.end('failed to access', pathname)
     }
 
-    console.log(pathname, data)
     res.setHeader('Content-Type', dict[ext] || 'text/plain')
     res.end(data)
   })
